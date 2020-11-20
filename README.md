@@ -47,7 +47,7 @@ We use four datasets for our experiments.
 - PubMed -> https://github.com/armancohan/long-summarization
 - WikiHow -> https://github.com/mahnazkoupaee/WikiHow-Dataset
 
-You can find the processed data for all of our experiments here [TODO: ADD LINK]. After dowunloading, you should put the data in `./data` directory.
+You can find the processed data for all of our experiments here [TODO: ADD LINK]. After downloading, you should put the data in `./data` directory.
 
 ## Results on CNN/DM
 
