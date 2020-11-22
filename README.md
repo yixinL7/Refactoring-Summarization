@@ -3,8 +3,8 @@ Code for our paper:
 "RefSum: Refactoring Neural Summarization"
 
 ## Outline
-* ### [Leaderboard](https://github.com/yixinL7/Refactoring-Summarization#requirements)
-* ### [Motivation](https://github.com/yixinL7/Refactoring-Summarization#Code-1)
+* ### [Install](https://github.com/yixinL7/Refactoring-Summarization#how-to-install)
+* ### [Play with Refactor](https://github.com/yixinL7/Refactoring-Summarization#how-to-run)
 * ### [Released Data](https://github.com/yixinL7/Refactoring-Summarization#data)
 * ### [Meta-evaluation Tool](https://github.com/yixinL7/Refactoring-Summarization#Fine-tune-1)
 
@@ -12,12 +12,14 @@ Code for our paper:
 
 
 
-## Requirements
+## How to Install
+
+### Requirements
 - `python3`
 - `conda create --name env --file spec-file.txt`
 - `pip3 install -r requirements.txt`
 
-## Code
+### Description of Codes
 - `main.py` -> training and evaluation procedure
 - `model.py` -> Refactor model
 - `data_utils.py` -> dataloader
@@ -25,7 +27,9 @@ Code for our paper:
 - `preprocess.py` -> data preprocessing
 - `demo.py` -> off-the-shelf refactoring
 
-## Run
+
+## How to Run
+
 ### Hyper-parameter Setting
 You may specify the hyper-parameters in `main.py`.
 ### Train
