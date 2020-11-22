@@ -3,9 +3,9 @@ Code for our paper:
 "RefSum: Refactoring Neural Summarization"
 
 ## Outline
-* ### [Leaderboard](https://github.com/yixinL7/Refactoring-Summarization#Requirements-1)
+* ### [Leaderboard](https://github.com/yixinL7/Refactoring-Summarization#requirements)
 * ### [Motivation](https://github.com/yixinL7/Refactoring-Summarization#Code-1)
-* ### [Released Data](https://github.com/yixinL7/Refactoring-Summarization#Data-1)
+* ### [Released Data](https://github.com/yixinL7/Refactoring-Summarization#data)
 * ### [Meta-evaluation Tool](https://github.com/yixinL7/Refactoring-Summarization#Fine-tune-1)
 
 
