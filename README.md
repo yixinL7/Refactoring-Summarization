@@ -4,8 +4,8 @@ Code for our paper:
 
 ## Outline
 * ### [Install](https://github.com/yixinL7/Refactoring-Summarization#how-to-install)
-* ### [Play with Refactor](https://github.com/yixinL7/Refactoring-Summarization#how-to-run)
-* ### [Released Data](https://github.com/yixinL7/Refactoring-Summarization#data)
+* ### [Train your Refactor](https://github.com/yixinL7/Refactoring-Summarization#how-to-run)
+* ### [Off-the-shelf Refactoring](https://github.com/yixinL7/Refactoring-Summarization#off-the-shelf-refactoring)
 * ### [Meta-evaluation Tool](https://github.com/yixinL7/Refactoring-Summarization#Fine-tune-1)
 
 
@@ -44,7 +44,10 @@ python main.py --cuda --gpuid [list of gpuid] -l --model_pt [model path]
 ```
 python main.py --cuda --gpuid [single gpu] -e --model_pt [model path] --model_name [model name]
 ```
-### Off-the-shelf Refactoring
+
+
+
+## Off-the-shelf Refactoring
 You may use our model with you own data by running
 ```
 python demo.py DATA_PATH MODEL_PATH RESULT_PATH
