@@ -7,7 +7,7 @@ Code for our paper:
 * ### [Train your Refactor](https://github.com/yixinL7/Refactoring-Summarization#how-to-run)
 * ### [Off-the-shelf Tool: Refactoring your Models](https://github.com/yixinL7/Refactoring-Summarization#off-the-shelf-refactoring)
 * ### [Dataset](https://github.com/yixinL7/Refactoring-Summarization#data)
-
+* ### [Dataset](https://github.com/yixinL7/Refactoring-Summarization#results)
 
 
 
@@ -66,21 +66,23 @@ We use four datasets for our experiments.
 
 You can find the processed data for all of our experiments here [TODO: ADD LINK]. After downloading, you should put the data in `./data` directory.
 
-## Results on CNN/DM
+## Results
 
-### Reranking BART
+
+### CNNDM
+#### Reranking BART
 |          | ROUGE-1 | ROUGE-2 | ROUGE-L |
 |----------|---------|---------|---------|
 | BART     | 44.26   | 21.12   | 41.16   |
 | Refactor | 45.15   | 21.70   | 42.00   |
 
-### Reranking GSum
+#### Reranking GSum
 |          | ROUGE-1 | ROUGE-2 | ROUGE-L |
 |----------|---------|---------|---------|
 | GSum     | 45.93   | 22.30   | 42.68   |
 | Refactor | 46.18   | 22.36   | 42.91   |
 
-### System-Combination (BART and pre-trained Refactor)
+#### System-Combination (BART and pre-trained Refactor)
 |                            | ROUGE-1 | ROUGE-2 | ROUGE-L |
 |----------------------------|---------|---------|---------|
 | BART                       | 44.26   | 21.12   | 41.16   |
