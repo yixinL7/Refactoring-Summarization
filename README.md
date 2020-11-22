@@ -7,7 +7,7 @@ Code for our paper:
 * ### [Train your Refactor](https://github.com/yixinL7/Refactoring-Summarization#how-to-run)
 * ### [Off-the-shelf Tool: Refactoring your Models](https://github.com/yixinL7/Refactoring-Summarization#off-the-shelf-refactoring)
 * ### [Dataset](https://github.com/yixinL7/Refactoring-Summarization#data)
-* ### [Dataset](https://github.com/yixinL7/Refactoring-Summarization#results)
+* ### [Results](https://github.com/yixinL7/Refactoring-Summarization#results)
 
 
 
