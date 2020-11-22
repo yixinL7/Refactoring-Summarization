@@ -12,7 +12,7 @@ Code for our paper:
 
 
 
-## How to Install
+## 1. How to Install
 
 ### Requirements
 - `python3`
@@ -28,7 +28,7 @@ Code for our paper:
 - `demo.py` -> off-the-shelf refactoring
 
 
-## How to Run
+## 2. How to Run
 
 ### Hyper-parameter Setting
 You may specify the hyper-parameters in `main.py`.
@@ -56,7 +56,7 @@ python demo.py DATA_PATH MODEL_PATH RESULT_PATH
 
 `RESULT_PATH` is the path of the result of which each line is a candidate summary.
 
-## Data
+## 3. Data
 We use four datasets for our experiments.
 
 - CNN/DailyMail -> https://github.com/abisee/cnn-dailymail
@@ -66,7 +66,7 @@ We use four datasets for our experiments.
 
 You can find the processed data for all of our experiments here [TODO: ADD LINK]. After downloading, you should put the data in `./data` directory.
 
-## Results
+## 4. Results
 
 
 ### CNNDM
