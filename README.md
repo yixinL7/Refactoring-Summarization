@@ -5,8 +5,8 @@ Code for our paper:
 ## Outline
 * ### [Install](https://github.com/yixinL7/Refactoring-Summarization#how-to-install)
 * ### [Train your Refactor](https://github.com/yixinL7/Refactoring-Summarization#how-to-run)
-* ### [Off-the-shelf Refactoring](https://github.com/yixinL7/Refactoring-Summarization#off-the-shelf-refactoring)
-* ### [Meta-evaluation Tool](https://github.com/yixinL7/Refactoring-Summarization#Fine-tune-1)
+* ### [Off-the-shelf Tool: Refactoring your Models](https://github.com/yixinL7/Refactoring-Summarization#off-the-shelf-refactoring)
+* ### [Dataset](https://github.com/yixinL7/Refactoring-Summarization#data)
 
 
 
