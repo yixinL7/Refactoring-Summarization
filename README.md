@@ -47,7 +47,7 @@ python main.py --cuda --gpuid [single gpu] -e --model_pt [model path] --model_na
 
 
 
-## Off-the-shelf Refactoring
+## 3. Off-the-shelf Refactoring
 You may use our model with you own data by running
 ```
 python demo.py DATA_PATH MODEL_PATH RESULT_PATH
@@ -56,7 +56,7 @@ python demo.py DATA_PATH MODEL_PATH RESULT_PATH
 
 `RESULT_PATH` is the path of the result of which each line is a candidate summary.
 
-## 3. Data
+## 4. Data
 We use four datasets for our experiments.
 
 - CNN/DailyMail -> https://github.com/abisee/cnn-dailymail
@@ -66,7 +66,7 @@ We use four datasets for our experiments.
 
 You can find the processed data for all of our experiments here [TODO: ADD LINK]. After downloading, you should put the data in `./data` directory.
 
-## 4. Results
+## 5. Results
 
 
 ### CNNDM
