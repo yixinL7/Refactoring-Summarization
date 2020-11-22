@@ -2,6 +2,16 @@
 Code for our paper:
 "RefSum: Refactoring Neural Summarization"
 
+## Outline
+* ### [Leaderboard](https://github.com/yixinL7/Refactoring-Summarization/Requirements-1)
+* ### [Motivation](https://github.com/yixinL7/Refactoring-Summarization/Code-1)
+* ### [Released Data](https://github.com/yixinL7/Refactoring-Summarization/Code-1)
+* ### [Meta-evaluation Tool](https://github.com/yixinL7/Refactoring-Summarization/Fine-tune-1)
+
+
+
+
+
 ## Requirements
 - `python3`
 - `conda create --name env --file spec-file.txt`
