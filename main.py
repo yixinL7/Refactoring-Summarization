@@ -25,6 +25,7 @@ logging.getLogger("transformers.tokenization_utils").setLevel(logging.ERROR)
 logging.getLogger("transformers.tokenization_utils_base").setLevel(logging.ERROR)
 logging.getLogger("transformers.tokenization_utils_fast").setLevel(logging.ERROR)
 
+
 def base_setting(args):
     args.batch_size = getattr(args, 'batch_size', 1)
     args.num_layers = getattr(args, 'num_layers', 2)  # transformer layers
@@ -44,11 +45,12 @@ def base_setting(args):
     args.pretrained = getattr(args, "pretrained", None)
     args.max_lr = getattr(args, "max_lr", 2e-3)
     args.scale = getattr(args, "scale", 1)
-    args.datatype = getattr(args, "datatype", "two")
+    args.datatype = getattr(args, "datatype", "pre")
     args.dataset = getattr(args, "dataset", "CNNDM")
-    args.use_ids = getattr(args, "use_ids", False)
+    args.use_ids = getattr(args, "use_ids", True)  # set true for pretraining
     args.max_len = getattr(args, "max_len", 512)
-    args.max_num = getattr(args, "max_num", 4)
+    args.max_num = getattr(args, "max_num", 4)  # max number of candidates
+
 
 def evaluation(args):
     # load data
@@ -175,14 +177,13 @@ def run(rank, args):
     is_mp = len(args.gpuid) > 1
     world_size = len(args.gpuid)
     if is_master:
-        id = random.randint(0, 100000)
-        recorder = Recorder(id, args.log)
+        recorder = Recorder(args.log)
     tok = BertTokenizer.from_pretrained(args.model_type)
     if args.use_ids:
         collate_fn = partial(collate_mp_ids, pad_token_id=tok.pad_token_id, is_test=False)
         collate_fn_val = partial(collate_mp_ids, pad_token_id=tok.pad_token_id, is_test=True)
         train_set = RefactoringIDsDataset(f"./{args.dataset}/{args.datatype}/train", args.model_type, maxlen=args.max_len, max_num=args.max_num)
-        val_set = RefactoringDataset(f"./{args.dataset}/{args.datatype}/val", args.model_type, is_test=True, maxlen=512, is_sorted=False)
+        val_set = RefactoringIDsDataset(f"./{args.dataset}/{args.datatype}/val", args.model_type, is_test=True, maxlen=512, is_sorted=False)
     else:
         collate_fn = partial(collate_mp, pad_token_id=tok.pad_token_id, is_test=False)
         collate_fn_val = partial(collate_mp, pad_token_id=tok.pad_token_id, is_test=True)
@@ -203,7 +204,7 @@ def run(rank, args):
     model = Refactor(model_path, num_layers=args.num_layers)
 
     if args.model_pt is not None:
-        model.load_state_dict(torch.load(args.model_pt), map_location=f'cuda:{gpuid}')
+        model.load_state_dict(torch.load(args.model_pt, map_location=f'cuda:{gpuid}'))
     if args.cuda:
         if len(args.gpuid) == 1:
             model = model.cuda()
@@ -211,7 +212,7 @@ def run(rank, args):
             dist.init_process_group("nccl", rank=rank, world_size=world_size)
             model = nn.parallel.DistributedDataParallel(model.to(gpuid), [gpuid], find_unused_parameters=True)
     model.train()
-    init_lr = args.sim_lr / args.warmup_steps
+    init_lr = args.max_lr / args.warmup_steps
     optimizer = optim.Adam(model.parameters(), lr=init_lr)
     if is_master:
         recorder.write_config(args, [model], __file__)
@@ -262,7 +263,7 @@ def run(rank, args):
                     else:
                         recorder.save(model, "model.bin")
                     recorder.save(optimizer, "optimizer.bin")
-                    recorder.print("best - epoch: %d, batch: %d"%(epoch + 1, i / args.accumulate_step))
+                    recorder.print("best - epoch: %d, batch: %d"%(epoch + 1, i / args.accumulate_step + 1))
                 if is_master:
                     if is_mp:
                         recorder.save(model.module, "model_cur.bin")
@@ -270,7 +271,8 @@ def run(rank, args):
                         recorder.save(model, "model_cur.bin")
                     recorder.save(optimizer, "optimizer_cur.bin")
                     recorder.print("val score: %.6f"%(1 - loss))
-               
+
+
 def main(args):
     # set env
     if len(args.gpuid) > 1:

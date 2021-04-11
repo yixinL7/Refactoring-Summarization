@@ -40,7 +40,7 @@ def padding(sents):
 
 def scoring(data_pt, model_pt, result_pt):
     model = Refactor('bert-base-uncased', num_layers=2).to(device)
-    model.load_state_dict(torch.load(model_pt), map_location=device)
+    model.load_state_dict(torch.load(model_pt, map_location=device))
     model = model.eval()
     rouge1, rouge2, rougeLsum = 0, 0, 0
     num = 0
